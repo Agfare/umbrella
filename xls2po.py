@@ -5,6 +5,7 @@ import xlrd
 from openpyxl import load_workbook
 import polib
 
+
 def convert_to_po():
     # Open a file dialog to select an XLS or XLSX file
     root = tk.Tk()
@@ -37,11 +38,14 @@ def convert_to_po():
             po.append(entry)
 
         # Open a file dialog to select a destination folder and filename for the PO file
-        save_path = filedialog.asksaveasfilename(defaultextension=".po", filetypes=[("PO Files", "*.po"), ("All Files", "*.*")])
+        save_path = filedialog.asksaveasfilename(defaultextension=".po",
+                                                 filetypes=[("PO Files", "*.po"), ("All Files", "*.*")])
         if save_path:
             # Save the PO file
             po.save(save_path)
-            messagebox.showinfo("Conversion complete", "The file has been converted to PO format and saved to:\n" + save_path)
+            messagebox.showinfo("Conversion complete",
+                                "The file has been converted to PO format and saved to:\n" + save_path)
+
 
 if __name__ == '__main__':
     convert_to_po()
